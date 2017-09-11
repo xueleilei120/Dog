@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dog</title>
+
+</head>
+<body>
+	<div class="dog">
+		<div class="forehead"></div>
+		<div class="face"></div>
+		<div class="chin"></div>
+		<div class="ear"></div>
+		<div class="ear right"></div>
+		<div class="eye">
+			<div class="pupil"></div>
+		</div>
+		<div class="eye right">
+			<div class="pupil right"></div>
+		</div>
+		<div class="birthmark"></div>
+		<div class="nose">
+			<div class="nostril"></div>
+			<div class="nostril right"></div>
+		</div> 
+		<div class="mouth">
+		    <div class="teeth"></div>
+		    <div class="teeth right"></div>
+		    <div class="tongue"></div>
+		 </div>
+		 <div class="body">
+		 	<div class="arm"></div>
+		 	<div class="arm right"></div>
+		 </div>
+		 <div class="leg">
+		 	<div class="foot"></div>
+		 </div>
+		 <div class="leg right">
+		 	<div class="foot right"></div>
+		 </div>
+		 <div class="belly"></div>
+	</div>
+	<style type="text/css">
+		:root{
+			--hl:#1b2f90;
+			--bg:#f9f9f6;
+			--t:1.5s;
+		}
+	/*	body{
+			background: url(../Source/images/bg.png) no-repeat center top;
+			background-size:100% auto;
+		}*/
+		body{
+			background:#ddd;
+
+		}
+		.dog{
+			width:300px;
+			height:400px;
+			position:relative;
+			margin:0 auto;
+			top:293px;
+		}
+		.forehead{
+			width:102px;
+			height:48px;
+			background:var(--bg);
+			position:absolute;
+			left:50%;
+			transform:translate(-50%,0);
+			border-radius:51px / 40px 40px 8px 8px;
+			z-index:1;
+		}
+		.face{
+			width:110px;
+			height:68px;
+			background:var(--bg);
+			position:absolute;
+			left:50%;
+			transform:translate(-50%,0);
+			border-radius:50%;
+			top:20px;
+			z-index:1;
+		}
+		.chin{
+			width:104px;
+			height: 36px;
+			background:var(--bg);
+			position:absolute;
+			left:50%;
+			transform:translate(-50%,0);
+			border-radius:52px / 0px 0px 30px 30px;
+			top:60px;
+			z-index:1;
+		}
+		.ear{
+			width:16px;
+			height:70px;
+			background-color:var(--hl);
+			position:absolute;
+			left:50%;
+			transform:translate(-35px,0) rotate(10deg);
+			border-radius:50%;
+			top:34px;
+			z-index:0;
+			transform-origin:50% 0;
+			animation:ear-rotate var(--t) ease-out infinite;
+		}
+		.ear.right{
+			transform:translate(18px,0) rotate(-13deg);
+			animation:ear-rotate-r var(--t) ease-out infinite;
+		}
+		.eye{
+			width:24px;
+			height:24px;
+			background-color:var(--bg);
+			position:absolute;
+			border-radius:12px / 13px 12px 12px 2px;
+			top:20px;
+			left:50%;
+			box-shadow:1px 0px 0px 0px #000 inset, 0px 0px 6px 2px #bbb;
+			transform:translate(-43px,0) rotate(10deg);
+			z-index:2;
+			overflow:hidden;
+		}
+		.eye.right{
+			transform:scale(-1,1) translate(-20px,0) rotate(10deg);
+			box-shadow:1px 0px 0px 0px #000 inset;
+		}
+		.pupil{
+			width:26px;
+			height:26px;
+			background-color:#e79101;
+			border-radius:50%;
+			position:absolute;
+			left:3px;
+			top:1px;
+			box-shadow:0 0 8px 0 #000 inset;
+			animation:pupil-moving var(--t) ease-out infinite;
+		}
+		.pupil:before{
+			display:block;
+			width: 18px;
+			height: 18px;
+			border-radius:50%;
+			background-color:#000;
+			content:"";
+			position:absolute;
+			left:0;
+			right: 0;
+			margin:auto;
+			top:50%;
+			transform:translate(0,-50%);
+		}
+		.pupil:after{
+			display:block;
+			position:absolute;
+			width:5px;
+			height: 5px;
+			border-radius:50%;
+			background-color:#f9f9f6;
+			top:7px;
+			left:3px;
+			content:"";
+		}
+		.birthmark{
+			    width: 30px;
+                height: 36px;
+                background: var(--hl);
+                border-radius: 15px / 17px 18px 3px 18px;
+                position: absolute;
+                z-index: 1;
+                top: 10px;
+                left: 50%;
+                transform: translate(14px,0) rotate(-13deg);
+		}
+		.nose{
+			width:62px;
+			height:32px;
+			position:absolute;
+			top: 44px;
+			left:0;
+			right:0;
+			margin:auto;
+			z-index:2;
+			background-color:#363015;
+			border-radius:30px / 10px 10px 22px 22px;
+		}
+		.nose:before{
+			display:block;
+			position:absolute;
+			width:60px;
+			height: 10px;
+			top:1px;
+			left:50%;
+			transform:translate(-50%,0);
+			border-radius:30px / 10px 10px 1px 1px;
+			background:linear-gradient(30deg,#fff 0%,#fff 8%,#b1aeb1 15%,#b1aeb1 50%,#544d53 100%);
+			content:'';
+		}
+		.nostril{
+			width:15px;
+			height:4px;
+			background:linear-gradient(0deg,#363015 0%,#000 100%);
+			position:absolute;
+			top:19px;
+			left:50%;
+			border-radius:50%;
+			transform:translate(-19px,0) rotate(30deg);
+			transform-origin:50% 0;
+			animation:nostril-risize var(--t) ease-out infinite;
+		}
+		.nostril.right{
+			transform:scale(-1,1) translate(-4px) rotate(30deg);
+		}
+		.mouth{
+			width:68px;
+			height:27px;
+			position:absolute;
+			left:50%;
+			transform:translate(-50%,0);
+			background-color:#671316;
+			border-radius:34px / 0px 0px 27px 27px;
+			z-index:1;
+			top:68px;
+			box-shadow:0px 0px 4px 0px #000 inset;
+			animation:mouth var(--t) ease-out infinite;
+		}
+		.mouth:before{
+			display:block;
+			position: absolute;
+			width: 68px;
+			height: 9px;
+			background-color:var(--bg);
+			border-radius:34px / 0px 0px 6px 6px;
+			content:'';
+			z-index:1;
+		}
+		.teeth{
+			width:8px;
+			height:3px;
+			position:absolute;
+			left:50%;
+			transform:translate(-8px,0);
+			border-radius:4px / 0px 0px 0px 1px;
+			background-color:var(--bg);
+			z-index:1;
+			top:9px;
+		}
+		.teeth.right{
+			transform:scale(-1,1) translate(0px,0);
+			border-right:.3px solid #ddd;
+		}
+		.tongue{
+			width:34px;
+			height:14px;
+			background-color:#a2504f;
+			border-radius:17px / 0px 0px 8px 8px;
+			box-shadow:0px 0px 3px 0 #000 inset;
+			position:absolute;
+			left:50%;
+			transform:translate(-50%,0);
+			z-index:0;
+			top:3px;
+			animation:tongue var(--t) ease-out infinite;
+		}
+		.body{
+			width:66px;
+			height:70px;
+			background-color:var(--bg);
+			border-radius:50%;
+			top:90px;
+			position:absolute;
+			left:50%;
+			transform:translate(-50%,0);
+		}
+		.arm{
+			width:26px;
+			height:40px;
+			background-color:var(--bg);
+			position:absolute;
+			left:50%;
+			top:6px;
+			border-radius:13px / 21px 0px 0px 21px;
+			transform:translate(-42px,0) rotate(15deg);		
+		}
+		.arm.right{
+			transform:scale(-1,1) translate(-17px,0) rotate(15deg);
+		}
+		.arm:before{
+			width:5px;
+			height:20px;
+			display:block;
+			position:absolute;
+			border-radius:5px / 10px 0px 0px 10px;
+			box-shadow:-1px 0px 0px 0px rgba(200,200,200,.5);
+			top:14px;
+			right:5px;
+			content:'';
+		}
+		.leg{
+			 width: 29px;
+             height: 50px;
+             position: absolute;
+             top: 132px;
+             left: 50%;
+             background:linear-gradient(-86deg,#ddd 10%,#eee 20%,#fff 100%);
+             border-radius: 13px / 5px 5px 10px 50px;
+             transform: translate(-32px,0);
+		}
+		.leg.right{
+			transform:scale(-1,1) translate(-3px,0);
+		}
+		.foot{
+			width:29px;
+			height:15px;
+			background:linear-gradient(-120deg,#bbb 0%,#eee 26%,#fff 100%);
+			position:absolute;
+			top:45px;
+			left:1px;
+			border-radius:15px / 8px 8px 2px 2px;
+		}
+		.belly{
+			width: 56px;
+            height: 36px;
+            position: absolute;
+            top: 125px;
+            left: 50%;
+            transform: translate(-50%,0);
+            background: linear-gradient(180deg,#fff 80%,#eee 85%,#bbb 100%);
+            border-radius: 30px / 0px 0px 36px 36px;
+		}
+		@keyframes ear-rotate{
+			0%{transform: translate(-35px,0) rotate(10deg); }
+			50%{transform: translate(-35px,0) rotate(30deg); }
+			100%{transform: translate(-35px,0) rotate(10deg); }
+		}
+		@keyframes ear-rotate-r{
+			0%{transform:scale(-1,1) translate(-20px,0) rotate(10deg) }
+			50%{transform:scale(-1,1) translate(-20px,0) rotate(30deg) }
+			100%{transform: scale(-1,1) translate(-20px,0) rotate(10deg)}
+		}
+		@keyframes pupil-moving{
+			0%{left:3px;}
+			50%{left:6px;}
+			100%{left:3px;}
+		}
+		@keyframes nostril-risize{
+			0%{height:4px;}
+			50%{height:2.5px;}
+			100%{height:4px;}
+		}
+		@keyframes tongue{
+			0%{top:3px;}
+			50%{top:9px;}
+			100%{top:3px;}
+		}
+		@keyframes mouth{
+			0%{
+				height:27px;
+				border-radius:34px / 0px 0px 27px 27px;
+			}
+			50%{
+				height:20px;
+				border-radius:34px / 0px 0px 20px 20px;
+			}
+			100%{
+				height:27px;
+				border-radius:34px / 0px 0px 27px 27px;
+			}
+		}
+	</style>
+</body>
+</html>
